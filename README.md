@@ -2,7 +2,7 @@
 
 Custom scripts for the analysis of host-parasite dual RNA-Seq data. 
 
-Analysis covered by this repository include:  
+Directories included in this repository:  
 
 ## read_counts
 
