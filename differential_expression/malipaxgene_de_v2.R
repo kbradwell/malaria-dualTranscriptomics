@@ -9,16 +9,6 @@ library(ggplot2)
 library(ggrepel) # Avoid overlapping labels
 library(gridExtra)
 
-# this list object now needs to be read into a table
-
-#### PRELIMINARY TESTING FILES ############################################################
-# readsDF <- read.table("./str_pysamcounts_hg3_noglobin_autosomes.normalized.out",header = TRUE,sep="\t")
-# readsDF <- read.table("./str_pysamcounts_pf.normalized.out",header = TRUE,sep="\t")
-
-# readsDF <- read.table("./str_pysamcountsv6_hg_deconv_libsizenorm.txt",header = TRUE,sep="\t")
-# readsDF <- read.table("./str_pysam_pf_deconv_libsizenorm.txt",header = TRUE,sep="\t")
-# readsDF <- read.table("./str_pysamcountsv6_pf_deconv_libsizenorm.txt",header = TRUE,sep="\t")
-
 #### ACTUAL FILES TO USE ##################################################################
 
 # readsDF <- read.table("./str_pysamcounts_v6_hg3_noglobin_autosomes_libsizenorm.txt",header = TRUE,sep="\t")
@@ -28,9 +18,9 @@ readsDF <- read.table("./str_pysamcountsv6_pf.libsizenorm.txt",header = TRUE,sep
 
 dfcounts <- as.data.frame(readsDF)
 annotLocs <- grep("GeneID|Length", colnames(dfcounts))
-grp1Locs <- grep("_35", colnames(dfcounts))
-grp2Locs <- grep("_36", colnames(dfcounts))
-grp3Locs <- grep("_262", colnames(dfcounts))
+grp1Locs <- grep("_patient1", colnames(dfcounts))
+grp2Locs <- grep("_patient2", colnames(dfcounts))
+grp3Locs <- grep("_patient3", colnames(dfcounts))
 x <- dfcounts[,c(annotLocs, grp1Locs, grp2Locs, grp3Locs)]
 
 colnames(x)
