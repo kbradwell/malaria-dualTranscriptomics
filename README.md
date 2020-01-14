@@ -16,6 +16,6 @@ edgeR script to determine differential expression over individuals and number of
 
 Spearmans correlations and permutations to determine whether host genes and parasite genes are coexpressed at a greater rate than expected by chance
 
-## snp_calling_and_coi
+## raf_and_coi
 
 Analysis of reference allele frequencies and complexity of infection
