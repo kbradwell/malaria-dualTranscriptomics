@@ -47,12 +47,18 @@ y <- y[keep, , keep.lib.sizes=FALSE]
 
 y <- calcNormFactors(y)
 
-# add in stage info for Pf
-stage_estimates <- read.table("./pf_stages2.txt",header = TRUE,sep="\t", row.names = 1)
-CIBER_Ring_stage <- stage_estimates$Ring
-CIBER_Troph_stage <- stage_estimates$Troph30
-# design <- model.matrix(~group+timepoints)
-design <- model.matrix(~group+timepoints+CIBER_Ring_stage)
+## add in stage info for Pf as covariate
+#stage_estimates <- read.table("./pf_stages2.txt",header = TRUE,sep="\t", row.names = 1)
+#CIBER_Ring_stage <- stage_estimates$Ring
+#CIBER_Troph_stage <- stage_estimates$Troph30
+## design <- model.matrix(~group+timepoints)
+#design <- model.matrix(~group+timepoints+CIBER_Ring_stage)
+
+# add in Pf parasitemia as a covariate
+parasitemia_estimates <- read.table("./parasitemia.txt",header = TRUE,sep="\t", row.names = 1)
+parasitemia_levels <- parasitemia_estimates$PARASITEMIA
+design <- model.matrix(~group+timepoints+parasitemia_levels)
+
 # rownames(design) <- colnames(y)
 # DEgenes <- estimateDisp(y,design)
 
