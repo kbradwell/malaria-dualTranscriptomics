@@ -14,10 +14,10 @@ BiocManager::install("reactome.db")
 
 source('https://bioconductor.org/biocLite.R')
 biocLite('org.Hs.eg.db')
-biocLite('org.Mm.eg.db')
+#biocLite('org.Mm.eg.db')
 
 library('org.Hs.eg.db')
-library('org.Mm.eg.db')
+#library('org.Mm.eg.db')
 
 columns(org.Hs.eg.db)
 
@@ -35,14 +35,6 @@ print(names(examplePathways))
 
 setwd("/Users/kbradwell/Desktop")
 getwd()
-
-# # format the ranks for pheatmap (not run)
-# rankdf <- read.csv(file = "./gsea_response_to_reviewers/human_TP_genesymbol_rankingstat_uniq.csv", header = TRUE, row.names = 1)
-# rankdf
-# ranksDE <- data.table(rankdf,keep.rownames = TRUE)
-# ranksDE
-# myranks <- ranksDE[order(RANK), list(rn, RANK)]
-# myranks
 
 GSEA = function(gene_list, GO_file) {
   ranks <- read.csv(file = gene_list, header = TRUE)
